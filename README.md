@@ -8,30 +8,15 @@ Programm your raspberry pi in `raspberry-pi-script`.
 ```bash
 # install dependencies
 bun install
-
-# start all services
-turbo dev
 ```
 
-### Start single Services
+### Start App
 
 ```bash
-# start express backend
-bun run dev:backend
-```
-
-```bash
-# start frontend
+# start app
 bun run dev:frontend
 
 # open http://127.0.0.1:3000
-```
-
-## Prep for first time setup
-
-```bash
-# install turbo cli
-bun install turbo --global
 ```
 
 ## Setup Raspberry Pi

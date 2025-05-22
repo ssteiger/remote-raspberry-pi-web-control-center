@@ -5,7 +5,7 @@ import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 const syncFiles = async () => {
-  const response = await fetch('/api/sync-files', {
+  const response = await fetch('/api/sync-files-to-raspberry-pi', {
     method: 'POST',
   })
   if (!response.ok) {
