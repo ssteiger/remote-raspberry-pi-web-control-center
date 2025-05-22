@@ -1,6 +1,7 @@
-# remote-raspberry-pi-web-control-center
+# Remote Raspberry Pi web control center
 
 A react based frontend to remotely manage your local raspberry pi.
+
 Programm your raspberry pi in `raspberry-pi-script`.
 
 ## Local development
@@ -8,11 +9,7 @@ Programm your raspberry pi in `raspberry-pi-script`.
 ```bash
 # install dependencies
 bun install
-```
 
-### Start App
-
-```bash
 # start app
 bun run dev:frontend
 
@@ -22,8 +19,8 @@ bun run dev:frontend
 ## Setup Raspberry Pi
 
 1. Download Raspberry Pi Imager [here](https://www.raspberrypi.com/software/)
-2. Setup wifi settings and active ssh
-3. Connect to Raspberry Pi `ssh pi@raspberrypi.local`
+2. Setup wifi settings and activate ssh
+3. Connect to Raspberry Pi: `ssh pi@raspberrypi.local`
 
 ### Install Node.js on Raspberry Pi
 
