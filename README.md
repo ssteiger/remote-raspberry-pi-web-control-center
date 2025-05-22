@@ -1,7 +1,7 @@
 # remote-raspberry-pi-web-control-center
 
-A react based web-app to remotely manage your local raspberry pi.
-Remotely upload files and execute commands through the browser.
+A react based frontend to remotely manage your local raspberry pi.
+Programm your raspberry pi in `raspberry-pi-script`.
 
 ## Local development
 
@@ -21,8 +21,8 @@ bun run dev:backend
 ```
 
 ```bash
-# start web-app
-bun run dev:web-app
+# start frontend
+bun run dev:frontend
 
 # open http://127.0.0.1:3000
 ```
@@ -39,7 +39,6 @@ bun install turbo --global
 1. Download Raspberry Pi Imager [here](https://www.raspberrypi.com/software/)
 2. Setup wifi settings and active ssh
 3. Connect to Raspberry Pi `ssh pi@raspberrypi.local`
-  3.1 Or fetch Raspberry Pi ip address `ping raspberrypi.local`
 
 ### Install Node.js on Raspberry Pi
 

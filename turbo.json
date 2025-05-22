@@ -5,15 +5,11 @@
       "dependsOn": ["^build"],
         "outputs": [".next/**", "!.next/cache/**"]
     },
-    "dev:web-app": {
-      "dependsOn": ["dev:backend"],
-      "cache": false
-    },
-    "dev:backend": {
+    "dev:frontend": {
       "cache": false
     },
     "dev": {
-      "dependsOn": ["env:check", "dev:web-app", "dev:backend"],
+      "dependsOn": ["env:check", "dev:frontend"],
       "cache": false
     },
     "env:check": {

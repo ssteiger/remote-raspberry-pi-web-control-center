@@ -1,5 +1,5 @@
 {
-  "name": "@remote-raspberry-pi-web-control-center/web-app",
+  "name": "@remote-raspberry-pi-web-control-center/frontend",
   "private": true,
   "type": "module",
   "scripts": {
@@ -79,6 +79,7 @@
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
+    "@types/ssh2": "^1.15.5",
     "babel-plugin-react-compiler": "latest",
     "drizzle-kit": "^0.30.6",
     "eslint": "^9.23.0",

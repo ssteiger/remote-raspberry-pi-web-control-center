@@ -2,8 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function checkAndCreateEnvFile() {
-  const envPath = path.join(process.cwd(), 'apps/web-app/.env.local');
-  const exampleEnvPath = path.join(process.cwd(), 'apps/web-app/.env.example');
+  const envPath = path.join(process.cwd(), 'apps/frontend/.env.local');
+  const exampleEnvPath = path.join(process.cwd(), 'apps/frontend/.env.example');
   
   if (!fs.existsSync(envPath)) {
     // Check if .env.example exists
