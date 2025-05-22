@@ -1,0 +1,23 @@
+{
+	"name": "remote-raspberry-pi-web-control-center",
+	"description": "A react based web-app to remotely manage your local raspberry pi",
+	"version": "0.1.0",
+	"authors": ["Soeren Steiger <soeren@memberr.de>"],
+	"private": true,
+	"packageManager": "npm@10.8.2",
+	"workspaces": ["apps/*"],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ssteiger/remote-raspberry-pi-web-control-center"
+	},
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"dev:web-app": "turbo run dev --filter=@remote-raspberry-pi-web-control-center/web-app",
+		"dev:backend": "turbo run dev --filter=@remote-raspberry-pi-web-control-center/backend",
+    "env:check": "node scripts.js env:check"
+	},
+	"devDependencies": {
+		"turbo": "^2.4.4"
+	}
+}
