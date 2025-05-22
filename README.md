@@ -1,7 +1,7 @@
 # remote-raspberry-pi-web-control-center
 
 A react based web-app to remotely manage your local raspberry pi.
-Temotely upload files and execute commands through the browser.
+Remotely upload files and execute commands through the browser.
 
 ## Local development
 
