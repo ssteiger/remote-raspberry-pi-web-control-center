@@ -90,37 +90,41 @@ async function removeDirectoryRecursively(sftp: SFTPClient, dirPath: string): Pr
         return;
       }
 
-      // Remove all files and subdirectories
-      for (const item of list) {
-        const itemPath = `${dirPath}/${item.filename}`;
-        if (item.attrs.isDirectory()) {
-          await removeDirectoryRecursively(sftp, itemPath);
-        } else {
-          await new Promise<void>((resolve, reject) => {
-            sftp.unlink(itemPath, (err) => {
-              if (err) {
-                reject(err);
-              } else {
-                resolve();
-              }
-            });
-          });
-        }
-      }
-
-      // Remove the directory itself
-      await new Promise<void>((resolve, reject) => {
-        sftp.rmdir(dirPath, (err) => {
-          if (err) {
-            console.error(`Error removing directory ${getRelativePath(dirPath)}:`, err);
-            reject(err);
+      try {
+        // Process all files and directories in parallel
+        await Promise.all(list.map(async (item) => {
+          const itemPath = `${dirPath}/${item.filename}`;
+          if (item.attrs.isDirectory()) {
+            await removeDirectoryRecursively(sftp, itemPath);
           } else {
-            resolve();
+            await new Promise<void>((resolve, reject) => {
+              sftp.unlink(itemPath, (err) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve();
+                }
+              });
+            });
           }
-        });
-      });
+        }));
 
-      resolve();
+        // Remove the directory itself
+        await new Promise<void>((resolve, reject) => {
+          sftp.rmdir(dirPath, (err) => {
+            if (err) {
+              console.error(`Error removing directory ${getRelativePath(dirPath)}:`, err);
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
+        });
+
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
     });
   });
 }

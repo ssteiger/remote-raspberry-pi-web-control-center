@@ -8,17 +8,12 @@ console.log('LED on GPIO 6 (output)')
 
 // Function to toggle LED state
 function toggleLED() {
-  led.read((err, value) => {
-    if (err) {
-      console.error('Error reading LED state:', err)
-      return
-    }
-    led.write(value === 0 ? 1 : 0, (err) => {
-      if (err) {
-        console.error('Error writing to LED:', err)
-      }
-    })
-  })
+  try {
+    const value = led.readSync()
+    led.writeSync(value === 0 ? 1 : 0)
+  } catch (err) {
+    console.error('Error toggling LED:', err)
+  }
 }
 
 // Start blinking every 500ms
