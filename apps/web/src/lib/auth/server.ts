@@ -103,7 +103,7 @@ export const oauthFn = createServerFn()
   })
 
 /**
- * PKCE code exchange — Supabase's magic-link / OAuth redirect lands the
+ * PKCE code exchange - Supabase's magic-link / OAuth redirect lands the
  * browser on `/auth/callback?code=<>`. We swap the code for a session here;
  * `@supabase/ssr` writes the resulting cookies onto the redirect response.
  */

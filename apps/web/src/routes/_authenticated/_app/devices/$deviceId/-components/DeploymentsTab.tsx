@@ -75,7 +75,7 @@ const columns: ColumnDef<DeploymentSummary>[] = [
       <span className="text-sm tabular-nums">
         {row.original.finishedAt
           ? formatDistanceStrict(new Date(row.original.finishedAt), new Date(row.original.startedAt))
-          : '—'}
+          : '-'}
       </span>
     ),
   },
@@ -84,7 +84,7 @@ const columns: ColumnDef<DeploymentSummary>[] = [
     header: 'By',
     size: 240,
     cell: ({ row }) => (
-      <span className="text-sm text-muted-foreground">{row.original.triggeredBy ?? '—'}</span>
+      <span className="text-sm text-muted-foreground">{row.original.triggeredBy ?? '-'}</span>
     ),
   },
 ]
@@ -150,7 +150,7 @@ export function DeploymentsTab({ device }: { device: PublicDevice }) {
     },
     {
       title: 'Last deploy',
-      value: last ? formatDistanceToNow(new Date(last.startedAt), { addSuffix: true }) : '—',
+      value: last ? formatDistanceToNow(new Date(last.startedAt), { addSuffix: true }) : '-',
       hint: last ? format(new Date(last.startedAt), 'EEE, d MMM yyyy · HH:mm') : 'Nothing deployed yet',
       Icon: CloudUploadIcon,
     },

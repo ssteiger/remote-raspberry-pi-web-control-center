@@ -95,7 +95,7 @@ function LevelBadge({ level }: { level: LogLevel }) {
 }
 
 function RelativeTime({ value }: { value: string | null }) {
-  if (!value) return <span className="text-muted-foreground">—</span>
+  if (!value) return <span className="text-muted-foreground">-</span>
   const date = new Date(value)
   return (
     <Tooltip>

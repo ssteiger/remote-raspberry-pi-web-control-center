@@ -41,12 +41,12 @@ function AccountSettingsPage() {
         <dl className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-0.5">
             <dt className="text-xs text-muted-foreground">Email</dt>
-            <dd className="text-sm break-all">{user?.email ?? '—'}</dd>
+            <dd className="text-sm break-all">{user?.email ?? '-'}</dd>
           </div>
           <div className="flex flex-col gap-0.5">
             <dt className="text-xs text-muted-foreground">Member since</dt>
             <dd className="text-sm">
-              {user?.created_at ? format(new Date(user.created_at), 'd MMMM yyyy') : '—'}
+              {user?.created_at ? format(new Date(user.created_at), 'd MMMM yyyy') : '-'}
             </dd>
           </div>
         </dl>

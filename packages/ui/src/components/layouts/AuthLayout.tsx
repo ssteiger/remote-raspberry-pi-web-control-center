@@ -71,7 +71,7 @@ export function AuthLayout({
                     &ldquo;{quote.text}&rdquo;
                   </p>
                   {quote.author ? (
-                    <footer className="text-sm text-white/75">— {quote.author}</footer>
+                    <footer className="text-sm text-white/75">- {quote.author}</footer>
                   ) : null}
                 </blockquote>
               </div>

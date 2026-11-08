@@ -133,7 +133,7 @@ function columnsFor(onAdd: (host: HostRow) => void): ColumnDef<HostRow>[] {
       header: 'MAC',
       size: 150,
       cell: ({ row }) => (
-        <span className="font-mono text-xs text-muted-foreground">{row.original.mac ?? '—'}</span>
+        <span className="font-mono text-xs text-muted-foreground">{row.original.mac ?? '-'}</span>
       ),
     },
     {
@@ -241,26 +241,26 @@ function DiscoverPage() {
   const stats = [
     {
       title: 'Addresses probed',
-      value: result ? result.scannedCount.toLocaleString() : '—',
+      value: result ? result.scannedCount.toLocaleString() : '-',
       hint: 'Every address of each local network, on SSH port 22',
       Icon: NetworkIcon,
     },
     {
       title: 'Raspberry Pis',
-      value: result ? String(piCount) : '—',
+      value: result ? String(piCount) : '-',
       hint: 'Recognised by their network card or by name',
       Icon: CpuIcon,
       accent: piCount ? 'text-brand' : undefined,
     },
     {
       title: 'SSH open',
-      value: result ? String(rows.filter((row) => row.sshOpen).length) : '—',
+      value: result ? String(rows.filter((row) => row.sshOpen).length) : '-',
       hint: 'Hosts that accept SSH, which the control center needs',
       Icon: TerminalIcon,
     },
     {
       title: 'Scan took',
-      value: result ? `${(result.durationMs / 1000).toFixed(1)} s` : '—',
+      value: result ? `${(result.durationMs / 1000).toFixed(1)} s` : '-',
       hint: 'Probes run in parallel with a short timeout',
       Icon: TimerIcon,
     },

@@ -163,7 +163,7 @@ export function OverviewTab({
           </StatTitle>
           <StatValue>
             <CpuIcon className="size-5 text-muted-foreground" />
-            {online?.load ? online.load[0].toFixed(2) : '—'}
+            {online?.load ? online.load[0].toFixed(2) : '-'}
           </StatValue>
           <StatDescription>
             {online?.load ? `5 min ${online.load[1].toFixed(2)} · 15 min ${online.load[2].toFixed(2)}` : ' '}
@@ -234,9 +234,9 @@ export function OverviewTab({
           </Fact>
           <Fact label="Signs in with">{device.authMethod === 'key' ? 'Private key' : 'Password'}</Fact>
           <Fact label="Hostname">
-            <span className="font-mono">{online?.hostname ?? '—'}</span>
+            <span className="font-mono">{online?.hostname ?? '-'}</span>
           </Fact>
-          <Fact label="Model">{online?.model ?? '—'}</Fact>
+          <Fact label="Model">{online?.model ?? '-'}</Fact>
           <Fact label="Added">{format(new Date(device.createdAt), 'd MMM yyyy')}</Fact>
         </dl>
       </PageSection>

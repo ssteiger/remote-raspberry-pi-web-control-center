@@ -191,7 +191,7 @@ const columns: ColumnDef<SysLogRow>[] = [
           {format(time, 'MMM d HH:mm:ss')}
         </span>
       ) : (
-        <span className="text-muted-foreground">—</span>
+        <span className="text-muted-foreground">-</span>
       )
     },
   },
@@ -207,7 +207,7 @@ const columns: ColumnDef<SysLogRow>[] = [
     header: 'Program',
     size: 180,
     cell: ({ row }) => (
-      <span className="font-mono text-xs whitespace-nowrap">{row.original.program || '—'}</span>
+      <span className="font-mono text-xs whitespace-nowrap">{row.original.program || '-'}</span>
     ),
   },
   {

@@ -55,7 +55,7 @@ function PinRow({
       </label>
       <div className="flex items-center gap-3">
         <Badge variant="outline" className="w-12 justify-center tabular-nums">
-          {level == null ? '—' : level ? 'High' : 'Low'}
+          {level == null ? '-' : level ? 'High' : 'Low'}
         </Badge>
         <Switch
           id={id}

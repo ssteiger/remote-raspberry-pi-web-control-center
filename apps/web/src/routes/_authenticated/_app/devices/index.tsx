@@ -88,7 +88,7 @@ const columns: ColumnDef<DeviceRow>[] = [
       row.original.health?.online ? (
         <ScriptBadge health={row.original.health} />
       ) : (
-        <span className="text-sm text-muted-foreground">—</span>
+        <span className="text-sm text-muted-foreground">-</span>
       ),
   },
   {
@@ -113,7 +113,7 @@ const columns: ColumnDef<DeviceRow>[] = [
     size: 90,
     sortingFn: nullsLast('load'),
     cell: ({ row }) => (
-      <span className="tabular-nums">{row.original.load?.toFixed(2) ?? '—'}</span>
+      <span className="tabular-nums">{row.original.load?.toFixed(2) ?? '-'}</span>
     ),
   },
   {

@@ -1,7 +1,7 @@
 /* Client-safe: how device numbers read on screen. */
 
 export function formatBytes(bytes: number | null): string {
-  if (bytes == null) return '—'
+  if (bytes == null) return '-'
   const units = ['B', 'KB', 'MB', 'GB', 'TB']
   let value = bytes
   let unit = 0
@@ -13,7 +13,7 @@ export function formatBytes(bytes: number | null): string {
 }
 
 export function formatDuration(seconds: number | null): string {
-  if (seconds == null) return '—'
+  if (seconds == null) return '-'
   const days = Math.floor(seconds / 86_400)
   const hours = Math.floor((seconds % 86_400) / 3600)
   const minutes = Math.floor((seconds % 3600) / 60)
@@ -24,7 +24,7 @@ export function formatDuration(seconds: number | null): string {
 }
 
 export function formatTemperature(celsius: number | null): string {
-  return celsius == null ? '—' : `${celsius.toFixed(1)} °C`
+  return celsius == null ? '-' : `${celsius.toFixed(1)} °C`
 }
 
 /** Above this the Pi starts to throttle its CPU. */
