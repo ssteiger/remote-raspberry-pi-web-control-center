@@ -1,0 +1,161 @@
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Cool near-white (light) and near-black (dark) greys with one indigo accent.
+ * Surfaces step apart only slightly (sidebar, page, card, popover) and hairline
+ * borders do the separating. --brand marks the few "you are here" places: the
+ * active page, the caret, checked controls. Secondary text stays at 4.5:1 or
+ * better on its surfaces in both themes.
+ */
+:root {
+  --background: oklch(0.991 0.001 286);
+  --foreground: oklch(0.244 0.006 271);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.244 0.006 271);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.244 0.006 271);
+  --primary: oklch(0.244 0.006 271);
+  --primary-foreground: oklch(0.991 0.001 286);
+  --secondary: oklch(0.959 0.003 286);
+  --secondary-foreground: oklch(0.244 0.006 271);
+  --muted: oklch(0.967 0.001 286);
+  --muted-foreground: oklch(0.541 0.012 262);
+  --accent: oklch(0.944 0.004 286);
+  --accent-foreground: oklch(0.244 0.006 271);
+  --destructive: oklch(0.582 0.192 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.004 286);
+  --input: oklch(0.896 0.005 286);
+  --ring: oklch(0.567 0.159 275);
+  --chart-1: oklch(0.567 0.159 275);
+  --chart-2: oklch(0.6 0.12 230);
+  --chart-3: oklch(0.62 0.14 155);
+  --chart-4: oklch(0.72 0.15 70);
+  --chart-5: oklch(0.6 0.19 25);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.976 0.001 286);
+  --sidebar-foreground: oklch(0.374 0.015 260);
+  --sidebar-primary: oklch(0.567 0.159 275);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.932 0.004 286);
+  --sidebar-accent-foreground: oklch(0.244 0.006 271);
+  --sidebar-border: oklch(0.92 0.004 286);
+  --sidebar-ring: oklch(0.567 0.159 275);
+  --frame: oklch(0.6 0.008 270);
+  --frame-inner: oklch(1 0 0);
+  --highlight: oklch(0.853 0.058 281);
+  --brand: oklch(0.567 0.159 275);
+}
+
+.dark {
+  --background: oklch(0.172 0.003 248);
+  --foreground: oklch(0.978 0.001 197);
+  --card: oklch(0.195 0.003 248);
+  --card-foreground: oklch(0.978 0.001 197);
+  --popover: oklch(0.228 0.006 286);
+  --popover-foreground: oklch(0.978 0.001 197);
+  --primary: oklch(0.925 0.002 264);
+  --primary-foreground: oklch(0.139 0.003 246);
+  --secondary: oklch(0.228 0.006 286);
+  --secondary-foreground: oklch(0.978 0.001 197);
+  --muted: oklch(0.215 0.005 264);
+  --muted-foreground: oklch(0.649 0.015 262);
+  --accent: oklch(0.245 0.006 280);
+  --accent-foreground: oklch(0.978 0.001 197);
+  --destructive: oklch(0.653 0.183 24);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.264 0.01 268);
+  --input: oklch(0.293 0.01 268);
+  --ring: oklch(0.65 0.19 279);
+  --chart-1: oklch(0.65 0.19 279);
+  --chart-2: oklch(0.72 0.12 230);
+  --chart-3: oklch(0.74 0.15 155);
+  --chart-4: oklch(0.8 0.14 75);
+  --chart-5: oklch(0.67 0.18 24);
+  --sidebar: oklch(0.139 0.003 246);
+  --sidebar-foreground: oklch(0.874 0.015 261);
+  --sidebar-primary: oklch(0.65 0.19 279);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.228 0.006 286);
+  --sidebar-accent-foreground: oklch(0.978 0.001 197);
+  --sidebar-border: oklch(0.228 0.006 286);
+  --sidebar-ring: oklch(0.65 0.19 279);
+  --frame: oklch(0.4 0.006 264);
+  --frame-inner: oklch(0.11 0.003 246);
+  --highlight: oklch(0.409 0.101 277);
+  --brand: oklch(0.65 0.19 279);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-frame: var(--frame);
+  --color-frame-inner: var(--frame-inner);
+  --color-highlight: var(--highlight);
+  --color-brand: var(--brand);
+}
+
+/*
+ * Sonner paints the description from its own theme, which ignores the app's
+ * palette. Use the app colours and typeface instead.
+ */
+[data-sonner-toaster][data-sonner-theme] {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-sonner-toaster][data-sonner-theme] [data-sonner-toast] [data-description] {
+  color: var(--muted-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv01" 1, "ss03" 1;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}

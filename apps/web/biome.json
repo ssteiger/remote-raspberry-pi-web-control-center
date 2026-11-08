@@ -1,0 +1,17 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["../../packages/biome-config/biome.json"],
+  "files": {
+    "ignore": [
+      ".turbo",
+      ".vscode",
+      "node_modules",
+      "next-env.d",
+      ".nitro",
+      ".output",
+      "dist",
+      "src/routeTree.gen.ts",
+      "src/lib/styles/app.css"
+    ]
+  }
+}

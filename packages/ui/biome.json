@@ -1,0 +1,17 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["../biome-config/biome.json"],
+  "files": {
+    "ignore": [
+      ".turbo",
+      ".vscode",
+      "node_modules",
+      "src/components/ui/Breadcrumb.tsx",
+      "src/components/ui/Carousel.tsx",
+      "src/components/ui/Chart.tsx",
+      "src/components/ui/InputOtp.tsx",
+      "src/components/ui/Slider.tsx",
+      "src/styles/app.css"
+    ]
+  }
+}
