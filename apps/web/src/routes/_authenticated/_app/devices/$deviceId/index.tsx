@@ -64,24 +64,6 @@ function DevicePage() {
           <ArrowLeftIcon className="size-3.5" />
           Devices
         </Link>
-        <PageHeader
-          className="border-b-0 p-0"
-          title={device?.name ?? <Skeleton className="h-8 w-48" />}
-          description={
-            device ? (
-              <span className="font-mono text-sm">
-                {device.username}@{device.host}
-                {device.port === 22 ? '' : `:${device.port}`}
-              </span>
-            ) : null
-          }
-          actions={
-            <div className="flex items-center gap-2">
-              <ScriptBadge health={health} />
-              <OnlineBadge health={health} isLoading={healthLoading} />
-            </div>
-          }
-        />
       </div>
 
       {device ? (
@@ -92,7 +74,14 @@ function DevicePage() {
           }
           className="flex min-h-0 flex-1 flex-col gap-0"
         >
-          <div className="shrink-0 overflow-x-auto border-b px-4 py-2">
+          <div className="flex shrink-0 items-center gap-4 overflow-x-auto border-b px-4 py-2">
+            <div className="text-sm">
+            {device?.name} - {' '}
+            <span className="font-mono text-sm">
+                {device.username}@{device.host}
+                {device.port === 22 ? '' : `:${device.port}`}
+              </span>
+            </div>
             <TabsList>
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="output">Output</TabsTrigger>
@@ -102,6 +91,10 @@ function DevicePage() {
               <TabsTrigger value="deployments">Deployments</TabsTrigger>
               <TabsTrigger value="settings">Settings</TabsTrigger>
             </TabsList>
+            <div className="ml-auto flex items-center gap-2">
+              <ScriptBadge health={health} />
+              <OnlineBadge health={health} isLoading={healthLoading} />
+            </div>
           </div>
           <TabsContent value="overview" className={TAB_PANEL}>
             <OverviewTab device={device} deploy={deploy} />

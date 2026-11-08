@@ -269,22 +269,23 @@ function DiscoverPage() {
   return (
     <TooltipProvider delayDuration={150}>
       <Page>
-        <PageHeader
-          title="Find a Pi"
-          description="Looks for Raspberry Pis on the networks of the computer running the control center: by name, by the maker of their network card, and by an open SSH port."
-          updatedAt={scan.dataUpdatedAt || null}
-          actions={
-            <Button
-              size="sm"
-              onClick={() => scan.refetch()}
-              disabled={scan.isFetching}
-              className="gap-1.5"
-            >
-              <RadarIcon className={scan.isFetching ? 'size-3.5 animate-pulse' : 'size-3.5'} />
-              {scan.isFetching ? 'Scanning...' : 'Scan again'}
-            </Button>
-          }
-        />
+        <div className="flex shrink-0 items-center gap-4 overflow-x-auto border-b px-4 py-2">
+          <div className="text-sm">
+            Find a Pi
+          </div>
+          <div className="ml-auto flex items-center gap-2"> 
+            {scan.dataUpdatedAt ? <span className="text-xs text-muted-foreground">Last updated: {new Date(scan.dataUpdatedAt).toLocaleString()}</span> : null}
+          </div>
+          <Button
+            size="sm"
+            onClick={() => scan.refetch()}
+            disabled={scan.isFetching}
+            className="gap-1.5"
+          >
+            <RadarIcon className={scan.isFetching ? 'size-3.5 animate-pulse' : 'size-3.5'} />
+            {scan.isFetching ? 'Scanning...' : 'Scan again'}
+          </Button>
+        </div>
 
         <Stats isLoading={scan.isLoading}>
           {stats.map(({ title, value, hint, Icon, accent }) => (

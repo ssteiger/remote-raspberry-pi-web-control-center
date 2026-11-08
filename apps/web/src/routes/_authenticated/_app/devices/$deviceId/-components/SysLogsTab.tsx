@@ -251,7 +251,7 @@ function forModel(row: SysLogRow): LogEntryToExplain {
 
 /** Asks the configured language model what the entry means, on request. */
 function Explanation({ item }: { item: SysLogRow }) {
-  const context = React.useContext(SysLogContext)
+  const context = React.use(SysLogContext)
   const status = useQuery({
     queryKey: ['assistant', 'status'],
     queryFn: () => getAssistantStatus(),
@@ -468,7 +468,7 @@ export function SysLogsTab({ device }: { device: PublicDevice }) {
         </PageNotice>
       ) : null}
 
-      <SysLogContext.Provider value={details}>
+      <SysLogContext value={details}>
         <DataTable
           fill
           data={rows}
@@ -487,7 +487,7 @@ export function SysLogsTab({ device }: { device: PublicDevice }) {
               'The last 200 matching journal entries load first, then new ones appear at the top as the Pi writes them.',
           }}
         />
-      </SysLogContext.Provider>
+      </SysLogContext>
     </>
   )
 }

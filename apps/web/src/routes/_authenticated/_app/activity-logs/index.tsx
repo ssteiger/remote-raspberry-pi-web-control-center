@@ -1,6 +1,7 @@
 import { postgres_db, schema } from '@rpi-control-center/db-drizzle'
 import {
   Badge,
+  Button,
   DataTable,
   Select,
   SelectContent,
@@ -23,7 +24,7 @@ import { createServerFn } from '@tanstack/react-start'
 import type { ColumnDef } from '@tanstack/react-table'
 import { format, formatDistanceToNow } from 'date-fns'
 import { desc } from 'drizzle-orm'
-import { AlertTriangleIcon, CircleAlertIcon, InfoIcon, ScrollTextIcon } from 'lucide-react'
+import { AlertTriangleIcon, CircleAlertIcon, InfoIcon, RefreshCcwIcon, ScrollTextIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { EmptyState, Page, PageHeader } from '~/lib/components/PageChrome'
@@ -223,19 +224,19 @@ const LogsPage = () => {
   return (
     <TooltipProvider delayDuration={150}>
       <Page>
-        <PageHeader
-          title="Activity logs"
-          description={
-            <>
-              The newest 1,000 lines from{' '}
-              <code className="rounded bg-muted px-1 py-0.5 text-xs">public.logs</code>, refreshed
-              every {REFRESH_INTERVAL_MS / 1000} seconds.
-            </>
-          }
-          updatedAt={dataUpdatedAt || null}
-          isFetching={isFetching}
-          onRefresh={() => refetch()}
-        />
+        <div className="flex shrink-0 items-center gap-4 overflow-x-auto border-b px-4 py-2">
+          <div className="text-sm">
+          Activity logs
+          </div>
+          <div className="ml-auto flex items-center gap-2"> 
+          {dataUpdatedAt ? <span className="text-xs text-muted-foreground">Last updated: {new Date(dataUpdatedAt).toLocaleString()}</span> : null}
+          </div>
+       
+          <Button size="sm" onClick={() => refetch()} disabled={isFetching} className="gap-1.5">
+            <RefreshCcwIcon className={isFetching ? 'size-3.5 animate-pulse' : 'size-3.5'} />
+            {isFetching ? 'Refreshing...' : 'Refresh'}
+          </Button>
+        </div>
 
         <Stats isLoading={isLoading}>
           {stats.map(({ title, value, hint, Icon, accent }) => (

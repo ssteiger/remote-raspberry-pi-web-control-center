@@ -224,18 +224,12 @@ function DevicesPage() {
   return (
     <TooltipProvider delayDuration={150}>
       <Page>
-        <PageHeader
-          title="Devices"
-          description="Your Raspberry Pis. Open one to deploy your script, watch its output and switch its pins."
-          updatedAt={dataUpdatedAt || null}
-          isFetching={isFetching}
-          onRefresh={() => {
-            refetch()
-            queryClient.invalidateQueries({ queryKey: ['device-health'] })
-          }}
-          actions={actions}
-        />
-
+        <div className="flex shrink-0 items-center gap-4 overflow-x-auto border-b px-4 py-2">
+          <div className="text-sm">
+          Devices
+          </div>
+          {actions}
+        </div>
         <Stats isLoading={isLoading}>
           {stats.map(({ title, value, hint, Icon, accent }) => (
             <Stat key={title}>
